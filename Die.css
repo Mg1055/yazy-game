@@ -1,0 +1,55 @@
+.die {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0;
+  margin: 4px;
+  color: #333; /* Ensure text is always visible */
+}
+
+.die:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.die:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+.die.held {
+  background: #4CAF50;
+  border-color: #45a049;
+  color: white;
+}
+
+.die.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.die-face {
+  font-size: 36px;
+  line-height: 1;
+  display: block;
+  color: inherit;
+}
+
+.held-indicator {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+} 

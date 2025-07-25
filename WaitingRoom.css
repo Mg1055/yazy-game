@@ -1,0 +1,226 @@
+.waiting-room {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.waiting-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.waiting-container h2 {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+  color: #333;
+}
+
+.waiting-container > p {
+  margin: 0 0 30px 0;
+  color: #666;
+  font-size: 18px;
+}
+
+.game-info {
+  display: grid;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.player-info {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.player-info h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.player-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #eee;
+}
+
+.player-item.waiting {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.player-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.you-badge {
+  background: #4CAF50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.game-code-section {
+  background: #f0f8ff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.game-code-section h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.game-code-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.game-code {
+  background: white;
+  border: 2px solid #2196F3;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2196F3;
+  letter-spacing: 2px;
+}
+
+.copy-btn {
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: #1976D2;
+}
+
+.share-instructions {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.waiting-actions {
+  margin-bottom: 30px;
+}
+
+.leave-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.leave-btn:hover {
+  background: #d32f2f;
+}
+
+.waiting-animation {
+  margin-top: 30px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.dots span {
+  width: 12px;
+  height: 12px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.waiting-animation p {
+  margin: 0;
+  color: #666;
+  font-style: italic;
+}
+
+.loading {
+  color: #666;
+  font-size: 18px;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .waiting-container {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .waiting-container h2 {
+    font-size: 1.5em;
+  }
+  
+  .game-code-display {
+    flex-direction: column;
+  }
+  
+  .game-code {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+} 

@@ -1,0 +1,96 @@
+.scorecard {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 0 auto;
+  color: #333; /* Ensure base text color is dark */
+}
+
+.scorecard h3 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.score-section {
+  margin-bottom: 20px;
+}
+
+.score-section h4 {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.scorecard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.score-row {
+  transition: background-color 0.2s ease;
+}
+
+.score-row.selectable {
+  cursor: pointer;
+}
+
+.score-row.selectable:hover {
+  background-color: #f0f8ff;
+}
+
+.score-row.scored {
+  background-color: #f9f9f9;
+}
+
+.score-row td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  color: #333; /* Ensure cell text is visible */
+}
+
+.category-name {
+  text-align: left;
+  font-weight: 500;
+  color: #333; /* Explicit color for category names */
+}
+
+.score-value {
+  text-align: right;
+  font-weight: bold;
+  color: #2196F3;
+  min-width: 40px;
+}
+
+.score-row.scored .score-value {
+  color: #333;
+}
+
+.section-totals {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid #eee;
+  font-size: 14px;
+  color: #333; /* Ensure totals are visible */
+}
+
+.section-totals div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  color: #333; /* Ensure individual total lines are visible */
+}
+
+.grand-total {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+} 
