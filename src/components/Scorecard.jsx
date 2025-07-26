@@ -36,11 +36,24 @@ const Scorecard = ({ scorecard, currentDice, onScoreSelect, canScore }) => {
     const isScored = currentScore !== undefined
     const canSelectThis = canScore && !isScored
 
+    const handleRowClick = () => {
+      console.log('Scorecard row clicked:', { 
+        category, 
+        canSelectThis, 
+        canScore, 
+        isScored, 
+        possibleScore 
+      })
+      if (canSelectThis) {
+        onScoreSelect(category)
+      }
+    }
+
     return (
       <tr 
         key={category}
         className={`score-row ${canSelectThis ? 'selectable' : ''} ${isScored ? 'scored' : ''}`}
-        onClick={canSelectThis ? () => onScoreSelect(category) : undefined}
+        onClick={handleRowClick}
       >
         <td className="category-name">{CATEGORY_NAMES[category]}</td>
         <td className="score-value">

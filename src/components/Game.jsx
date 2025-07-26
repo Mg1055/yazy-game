@@ -90,11 +90,31 @@ const Game = ({ gameId, playerId, onLeaveGame }) => {
   }
 
   const handleScoreSelect = async (category) => {
-    if (!isMyTurn() || rollsLeft === 3) return
+    console.log('Score select attempted:', { 
+      category, 
+      isMyTurn: isMyTurn(), 
+      rollsLeft, 
+      gameState: gameState?.current_turn,
+      playerId 
+    })
 
+    // Can only score if it's my turn AND I've rolled at least once
+    if (!isMyTurn()) {
+      console.log('Not my turn, cannot score')
+      return
+    }
+    
+    if (rollsLeft === 3) {
+      console.log('Must roll at least once before scoring')
+      return
+    }
+
+    console.log('Attempting to score:', { category, rollsLeft, currentDice })
     const score = calculateScore(currentDice, category)
     const currentPlayer = getCurrentPlayer()
     const newScorecard = { ...currentPlayer.scorecard, [category]: score }
+
+    console.log('Score calculation:', { score, newScorecard })
 
     try {
       const otherPlayerId = gameState.players.find(p => p.id !== playerId)?.id
@@ -110,12 +130,16 @@ const Game = ({ gameId, playerId, onLeaveGame }) => {
         status: isGameOver ? 'completed' : 'active'
       }
 
+      console.log('Updating database with:', updates)
+
       const { error } = await supabase
         .from('games')
         .update(updates)
         .eq('id', gameId)
 
       if (error) throw error
+
+      console.log('Database updated successfully, resetting for next turn')
 
       // Reset for next turn
       setCurrentDice([1, 1, 1, 1, 1])
